@@ -12,13 +12,12 @@ Uses a local SQLite3 database for ease of setup.
 To start just run through
 * bundle install
 * If you have a Best Buy API key:
-** rake make_seed
-** otherwise the included seeds.rb will suffice.
+*   rake make_seed
+*   otherwise the included seeds.rb will suffice.
 * db:setup
 * rails s
 
-Note that images are still be served from Best Buy for the sake of size.
+Note that images are still being served from Best Buy for size and portability.
 Please be respectful and do not abuse their media servers with too many phone detail views.
 
 Future updates may include table sorting, less contrived metrics, and additional chart types.
-<tt>rake doc:app</tt>.
