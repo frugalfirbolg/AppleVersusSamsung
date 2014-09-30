@@ -1,0 +1,68 @@
+<%= form_for @phone, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :shortDescription, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :shortDescription, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :largeImage, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :largeImage, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :manufacturer, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :manufacturer, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :regularPrice, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :regularPrice, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :bestSellingRank, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :bestSellingRank, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :salesRankShortTerm, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :salesRankShortTerm, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :salesRankMediumTerm, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :salesRankMediumTerm, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :salesRankLongTerm, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :salesRankLongTerm, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :classId, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :classId, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                phones_path, :class => 'btn' %>
+  </div>
+<% end %>

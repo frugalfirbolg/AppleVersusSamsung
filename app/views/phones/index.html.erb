@@ -1,0 +1,71 @@
+<%- model_class = Phone -%>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <ul class="pagination" style="float:right;">
+              <li><a href=<% if @page > 1 %><%= "?page=#{@page - 1}" %><% else %>"#" class="btn disabled"<% end %> >&laquo;</a></li>
+                <!-- finish pagination using getJSON to fetch records, and copy pagination ul to top as well -->
+              <% for i in 1..@page_count %>
+                  <li><a href=<%= "?page=#{i}" %> ><%= i %></a></li>
+              <% end %>
+              <li><a href=<% if @page < @page_count %><%= "?page=#{@page + 1}" %><% else %>"#" class="btn disabled"<% end %> >&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th><%= model_class.human_attribute_name(:largeImage) %></th>
+                    <th><%= model_class.human_attribute_name(:name) %></th>
+                    <th><%= model_class.human_attribute_name(:shortDescription) %></th>
+                    <th><%= model_class.human_attribute_name(:manufacturer) %></th>
+                    <th><%= model_class.human_attribute_name(:regularPrice) %></th>
+                    <th><%= model_class.human_attribute_name(:bestSellingRank) %></th>
+                    <th><%= model_class.human_attribute_name(:salesRankShortTerm) %></th>
+                    <th><%= model_class.human_attribute_name(:salesRankMediumTerm) %></th>
+                    <th><%= model_class.human_attribute_name(:salesRankLongTerm) %></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @phones.each do |phone| %>
+                    <tr class="clickableRow" href=<%= "/phones/#{phone.id}" %>>
+                      <td><img src=<%= phone.largeImage %> style="max-height:160px; max-width:160px;" /></td>
+                      <td><%= phone.name %></td>
+                      <td><%= phone.shortDescription %></td>
+                      <td><%= phone.manufacturer %></td>
+                      <td><%= phone.regularPrice %></td>
+                      <td><%= phone.bestSellingRank %></td>
+                      <td><%= phone.salesRankShortTerm || "None yet" %></td>
+                      <td><%= phone.salesRankMediumTerm || "None yet" %></td>
+                      <td><%= phone.salesRankLongTerm || "None yet" %></td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="pagination" style="float:right;">
+              <li><a href=<% if @page > 1 %><%= "?page=#{@page - 1}" %><% else %>"#" class="btn disabled"<% end %> >&laquo;</a></li>
+                <!-- finish pagination using getJSON to fetch records, and copy pagination ul to top as well -->
+              <% for i in 1..@page_count %>
+                  <li><a href=<%= "?page=#{i}" %> ><%= i %></a></li>
+              <% end %>
+              <li><a href=<% if @page < @page_count %><%= "?page=#{@page + 1}" %><% else %>"#" class="btn disabled"<% end %> >&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+$(document).ready(function($) {
+    $('.clickableRow').click(function() {
+        window.document.location = $(this).attr('href');
+    });
+});
+</script>

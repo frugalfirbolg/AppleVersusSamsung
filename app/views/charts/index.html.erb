@@ -1,0 +1,116 @@
+<style>
+    .chart {
+        padding: 10px;
+    }
+    #tooltip {
+        position: absolute;
+        width: 80px;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+    }
+    #tooltip.hidden {
+        display: none;
+    }
+    #tooltip p {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 12px;
+        line-height: 16px;
+    }
+    .indent{
+        padding-left: 5px;
+    }
+
+    rect {
+        -moz-transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+    rect:hover{
+        fill: orange;
+    }
+</style>
+<div class="page-header">
+    <h1 class="text-center">Apple Versus Samsung</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <ul class="nav nav-pills nav-justified">
+        <li class="active"><a href="#manufacturer" data-toggle="pill">Manufacturer</a></li>
+        <li><a href="#carrier"  data-toggle="pill">Carrier</a></li>
+        <li><a href="#price"  data-toggle="pill">Price</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+      <div class="contentArea tab-content col-md-12">
+          <div id="tooltip" class="hidden">
+              <p><strong>Rank</strong>
+              </p>
+              <p class="indent"><span id="rank">0</span>
+              </p>
+          </div>
+          <div class="contents tab-pane active" id="manufacturer">
+              <div id="manufacturer-chart" class="chart">
+              </div>
+          </div><!-- /.contents -->
+          <div class="contents tab-pane" id="carrier">
+              <div id="carrier-chart" class="chart">
+              </div>
+          </div><!-- /.contents -->
+          <div class="contents tab-pane" id="price">
+              <div id="price-chart" class="chart">
+              </div>
+          </div><!-- /.contents -->
+    </div><!-- /.contentArea -->
+  </div>
+  <div class="row">
+      <div class="col-md-12">
+          <span style="background-color:#AFAFAF; color:white; padding: 4px">Apple</span>
+          <span style="background-color:#377EB8; color:white; padding: 4px">Samsung</span>
+      </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+// on tab change handler
+  $('a[data-toggle="pill"]').on('shown.bs.tab', function (e) {
+    switch(e.target.attributes['href'].value) {
+      case '#carrier':
+        initChart(carrierJSON, 'carrier');
+        break;
+      case '#manufacturer':
+        initChart(manufacturerJSON, 'manufacturer');
+        break;
+      case '#price':
+        initChart(priceJSON, 'price');
+        break;
+    }
+  });
+
+  loadData();
+});
+$(window).resize(function(){
+  switch($('div.contents.tab-pane.active').attr('id')) {
+    case 'carrier':
+        initChart(carrierJSON, 'carrier');
+        break;
+      case 'manufacturer':
+        initChart(manufacturerJSON, 'manufacturer');
+        break;
+      case 'price':
+        initChart(priceJSON, 'price');
+        break;
+    }
+});
+</script>

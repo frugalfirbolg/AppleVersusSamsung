@@ -1,0 +1,26 @@
+<%- model_class = Phone -%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <img src=<%= @phone.largeImage %> style="min-height:240px; margin:8px;" />
+    </div>
+    <div class="col-md-8">
+        <h3><%= @phone.name %></h3><hr/>
+        <strong><%= model_class.human_attribute_name(:shortDescription) %>:</strong> <%= @phone.shortDescription %><br />
+        <strong><%= model_class.human_attribute_name(:manufacturer) %>:</strong> <%= @phone.manufacturer %><br />
+        <strong><%= model_class.human_attribute_name(:regularPrice) %>:</strong> <%= @phone.regularPrice %><br />
+        <strong><%= model_class.human_attribute_name(:bestSellingRank) %>:</strong> <%= @phone.bestSellingRank %><br />
+        <strong><%= model_class.human_attribute_name(:salesRankShortTerm) %>:</strong> <%= @phone.salesRankShortTerm %><br />
+        <strong><%= model_class.human_attribute_name(:salesRankMediumTerm) %>:</strong> <%= @phone.salesRankMediumTerm %><br />
+        <strong><%= model_class.human_attribute_name(:salesRankLongTerm) %>:</strong> <%= @phone.salesRankLongTerm %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+        <ul class="pager">
+          <li class="previous"><a href= <% if @id > 1 %><%= @id - 1 %><% else %>"#" class="btn disabled"<% end %> >&larr; Previous</a></li>
+          <li class="next"><a href= <% if @id < @max_id %><%= @id + 1 %><% else %>"#" class="btn disabled"<% end %> >Next &rarr;</a></li>
+        </ul>
+    </div>
+  </div>
+</div>

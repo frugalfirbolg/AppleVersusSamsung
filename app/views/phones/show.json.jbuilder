@@ -1,0 +1,1 @@
+json.extract! @phone, :id, :name, :shortDescription, :largeImage, :manufacturer, :regularPrice, :bestSellingRank, :salesRankShortTerm, :salesRankMediumTerm, :salesRankLongTerm, :classId, :created_at, :updated_at

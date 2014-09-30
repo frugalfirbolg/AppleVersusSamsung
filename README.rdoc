@@ -1,0 +1,21 @@
+== README
+1 day code sample demonstrating basic Rails patterns, Bootstrap, Rake tasks,
+D3.js visualizations, AJAX, and use of the Best Buy Product API.
+
+Written with Rails 4.0.2
+
+If you have your own Best Buy API key you can place it in the make_seed.rake task.
+(Production version would store key in a config or the database of course)
+
+Uses a local SQLite3 database for ease of setup.
+
+To start just run through
+* bundle install
+* rails generate bootstrap:install static
+* db:setup
+* rails s
+
+Note that images are still be served from Best Buy for the sake of size.
+Please be respectful and do not abuse their media servers with too many phone detail views.
+
+<tt>rake doc:app</tt>.
