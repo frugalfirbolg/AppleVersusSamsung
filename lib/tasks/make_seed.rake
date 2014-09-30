@@ -1,7 +1,7 @@
 # Download json from BestBuy API and generate seeds.rb
 # Register for your API key at https://remix.mashery.com/member/register
 # If you do not want to register an API key the app will simply use the pre-built seeds.rb
-$api_key = 'p9b63psx9x7d45jnwd2cq8bw'
+$api_key = '<secret key>'
 desc "Download data from BestBuy API and format JSON into seed.rb"
 task :make_seed do
   require('net/http')

@@ -18,4 +18,5 @@ To start just run through
 Note that images are still be served from Best Buy for the sake of size.
 Please be respectful and do not abuse their media servers with too many phone detail views.
 
+Future updates may include table sorting, less contrived metrics, and additional chart types.
 <tt>rake doc:app</tt>.
