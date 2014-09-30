@@ -11,7 +11,9 @@ Uses a local SQLite3 database for ease of setup.
 
 To start just run through
 * bundle install
-* rails generate bootstrap:install static
+* If you have a Best Buy API key:
+** rake make_seed
+** otherwise the included seeds.rb will suffice.
 * db:setup
 * rails s
 
